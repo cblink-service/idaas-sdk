@@ -17,6 +17,7 @@ use Hyperf\Utils\Collection;
  * @property-read Department $department
  * @property-read ThirdUser $third_user
  * @property-read Setting $organization_setting
+ * @property-read
  */
 class Application extends Container
 {
@@ -26,5 +27,6 @@ class Application extends Container
     protected array $providers = [
         Auth\ServiceProvider::class,
         Organization\ServiceProvider::class,
+        User\ServiceProvider::class,
     ];
 }
