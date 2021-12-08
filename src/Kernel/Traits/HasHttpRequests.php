@@ -14,7 +14,7 @@ trait HasHttpRequests
     /**
      * @var HandlerStack
      */
-    protected HandlerStack $handlerStack;
+    protected $handlerStack;
 
     /**
      * Build a handler stack.

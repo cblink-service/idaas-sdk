@@ -11,6 +11,18 @@ class Setting extends BaseApi
 {
 
     /**
+     * 获取企业微信配置
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getWeworkConfig(array $query = [])
+    {
+        return $this->httpGet('/organization/setting/config/wework', $query);
+    }
+
+    /**
      * 创建企业微信配置
      *
      * @return array|\Psr\Http\Message\ResponseInterface|string

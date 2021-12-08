@@ -137,8 +137,8 @@ class BaseApi
     {
         $baseUrl = $this->basePath;
 
-        if(!empty($this->app['config']['base_url'])) {
-            $baseUrl = $this->app['config']['base_url'];
+        if(!empty($this->app['config']->get('base_url'))) {
+            $baseUrl = $this->app['config']->get('base_url');
         }
 
         return rtrim($baseUrl, '/') . '/' . ltrim($url);

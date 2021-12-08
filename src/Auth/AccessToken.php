@@ -85,10 +85,18 @@ class AccessToken
      */
     public function requestToken()
     {
-        $response = $this->request('POST', $this->endpointToGetToken, ['json' => $this->getCredentials()]);
+        $response = $this->request('POST', $this->getRequestUrl($this->endpointToGetToken), ['json' => $this->getCredentials()]);
 
-        if (!isset($response['err_code']) || $response['err_code'] > 0) {
-            throw new HttpClientException('Request access_token fail: '. json_encode($response, JSON_UNESCAPED_UNICODE));
+        $response = $response->getBody()->getContents();
+
+        $body = json_decode($response, true);
+
+        if (json_last_error()) {
+            throw new HttpClientException(sprintf('Request access_token fail: %s', $response));
+        }
+
+        if (!isset($body['err_code']) || $body['err_code'] > 0) {
+            throw new HttpClientException('Request access_token fail: '. json_encode($body, JSON_UNESCAPED_UNICODE));
         }
 
         return $response;
@@ -123,8 +131,8 @@ class AccessToken
     {
         $baseUrl = $this->basePath;
 
-        if(!empty($this->app['config']['base_url'])) {
-            $baseUrl = $this->app['config']['base_url'];
+        if(!empty($this->app['config']->get('base_url'))) {
+            $baseUrl = $this->app['config']->get('base_url');
         }
 
         return rtrim($baseUrl, '/') . '/' . ltrim($url);
@@ -138,8 +146,8 @@ class AccessToken
     protected function getCredentials(): array
     {
         return [
-            'appid' => $this->app['config']['appid'],
-            'secret' => $this->app['config']['secret'],
+            'appid' => $this->app['config']->get('appid'),
+            'secret' => $this->app['config']->get('secret'),
         ];
     }
 }

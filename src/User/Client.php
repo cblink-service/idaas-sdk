@@ -4,7 +4,7 @@ namespace Cblink\Service\IDaas\User;
 
 use Cblink\Service\IDaas\Kernel\BaseApi;
 
-class User extends BaseApi
+class Client extends BaseApi
 {
     /**
      * 用户列表
