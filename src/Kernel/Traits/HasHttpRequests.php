@@ -21,7 +21,7 @@ trait HasHttpRequests
      *
      * @return HandlerStack
      */
-    public function getHandlerStack(): HandlerStack
+    protected function getHandlerStack(): HandlerStack
     {
         if ($this->handlerStack) {
             return $this->handlerStack;
@@ -59,7 +59,7 @@ trait HasHttpRequests
      * @return \Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function request(string $method = 'POST', string $url = '', array $options = [])
+    protected function request(string $method = 'POST', string $url = '', array $options = [])
     {
         $method = strtoupper($method);
 
@@ -76,7 +76,7 @@ trait HasHttpRequests
      *
      * @return $this
      */
-    public function pushMiddleware(callable $middleware, string $name = null)
+    protected function pushMiddleware(callable $middleware, string $name = null)
     {
         if (!is_null($name)) {
             $this->middlewares[$name] = $middleware;

@@ -30,4 +30,16 @@ class Client extends BaseApi
     {
         return $this->httpPost('/api/user', $data);
     }
+
+    /**
+     * 查询用户详情
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function show(array $query = [])
+    {
+        return $this->httpGet('/api/user/show', $query);
+    }
 }

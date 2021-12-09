@@ -21,5 +21,9 @@ class ServiceProvider implements ServiceProviderInterface
         $pimple['organization_setting'] = function($pimple){
             return new Setting($pimple);
         };
+
+        $pimple['company'] = function($pimple){
+            return new Company($pimple);
+        };
     }
 }

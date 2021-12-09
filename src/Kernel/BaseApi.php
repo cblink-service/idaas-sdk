@@ -22,7 +22,7 @@ class BaseApi
     /**
      * @var AccessToken
      */
-    protected $accessToken;
+    public $accessToken;
 
     /**
      * @var string
@@ -43,7 +43,7 @@ class BaseApi
      * @return \Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function httpGet($url, array $query = [])
+    protected function httpGet($url, array $query = [])
     {
         return $this->request('GET', $url, ['query' => $query]);
     }
@@ -57,7 +57,7 @@ class BaseApi
      * @return \Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function httpPost(string $url, array $data = [], array $query = [])
+    protected function httpPost(string $url, array $data = [], array $query = [])
     {
         return $this->request('POST', $url, ['query' => $query, 'json' => $data]);
     }
@@ -71,7 +71,7 @@ class BaseApi
      * @return \Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function httpPut(string $url, array $data = [], array $query = [])
+    protected function httpPut(string $url, array $data = [], array $query = [])
     {
         return $this->request('PUT', $url, ['query' => $query, 'json' => $data]);
     }
@@ -84,7 +84,7 @@ class BaseApi
      * @return \Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function httpDelete($url, array $query = [])
+    protected function httpDelete($url, array $query = [])
     {
         return $this->request('DELETE', $url, ['query' => $query]);
     }
@@ -99,7 +99,7 @@ class BaseApi
      * @return \Psr\Http\Message\ResponseInterface|array
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function request(string $method = 'POST', string $url = '', array $options = [], $returnRaw = false)
+    protected function request(string $method = 'POST', string $url = '', array $options = [], $returnRaw = false)
     {
         if (empty($this->middlewares)) {
             $this->registerHttpMiddlewares();
@@ -114,7 +114,7 @@ class BaseApi
      * @param ResponseInterface $response
      * @return array
      */
-    public function castResponseToType(ResponseInterface $response): array
+    protected function castResponseToType(ResponseInterface $response): array
     {
         $response->getBody()->rewind();
         $contents = $response->getBody()->getContents();
@@ -133,7 +133,7 @@ class BaseApi
      * @param $url
      * @return string
      */
-    public function getRequestUrl($url): string
+    protected function getRequestUrl($url): string
     {
         $baseUrl = $this->basePath;
 
@@ -147,7 +147,7 @@ class BaseApi
     /**
      *
      */
-    public function registerHttpMiddlewares()
+    protected function registerHttpMiddlewares()
     {
         $this->pushMiddleware($this->accessTokenMiddleware(), 'access-token');
     }

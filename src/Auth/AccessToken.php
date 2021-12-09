@@ -117,7 +117,7 @@ class AccessToken
     /**
      * @return string
      */
-    public function getCacheKey(): string
+    protected function getCacheKey(): string
     {
         return 'access-token-' . md5(json_encode($this->getCredentials(), JSON_UNESCAPED_UNICODE));
     }
@@ -127,7 +127,7 @@ class AccessToken
      * @param $url
      * @return string
      */
-    public function getRequestUrl($url): string
+    protected function getRequestUrl($url): string
     {
         $baseUrl = $this->basePath;
 
