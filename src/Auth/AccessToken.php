@@ -135,7 +135,7 @@ class AccessToken
             $baseUrl = $this->app['config']->get('base_url');
         }
 
-        return rtrim($baseUrl, '/') . '/' . ltrim($url);
+        return rtrim($baseUrl, '/') . '/' . ltrim($url, '/');
     }
 
     /**
