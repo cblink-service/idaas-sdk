@@ -2,11 +2,11 @@
 
 namespace Cblink\Service\IDaas\Auth;
 
+use Cblink\Service\IDaas\HttpClientException;
 use Cblink\Service\IDaas\Kernel\Container;
 use Cblink\Service\IDaas\Kernel\Traits\HasHttpRequests;
 use Psr\Http\Message\RequestInterface;
 use RuntimeException;
-use Hyperf\Engine\Exception\HttpClientException;
 use Cblink\Service\IDaas\Kernel\Traits\InteractsWithCache;
 
 class AccessToken
