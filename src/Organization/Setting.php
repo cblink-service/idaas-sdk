@@ -19,7 +19,7 @@ class Setting extends BaseApi
      */
     public function getWeworkConfig(array $query = [])
     {
-        return $this->httpGet('/organization/setting/config/wework', $query);
+        return $this->httpGet('/api/organization/setting/config/wework', $query);
     }
 
     /**
@@ -30,7 +30,7 @@ class Setting extends BaseApi
      */
     public function createWeworkConfig(array $data = [])
     {
-        return $this->httpPost('/organization/setting/config/wework', $data);
+        return $this->httpPost('/api/organization/setting/config/wework', $data);
     }
 
     /**
@@ -42,7 +42,7 @@ class Setting extends BaseApi
      */
     public function active(array $data = [])
     {
-        return $this->httpPost('/organization/setting/active', $data);
+        return $this->httpPost('/api/organization/setting/active', $data);
     }
 
     /**
@@ -54,7 +54,7 @@ class Setting extends BaseApi
      */
     public function run(array $data = [])
     {
-        return $this->httpPost('/organization/setting/run', $data);
+        return $this->httpPost('/api/organization/setting/run', $data);
     }
 
     /**
@@ -66,7 +66,7 @@ class Setting extends BaseApi
      */
     public function getTasks(array $query = [])
     {
-        return $this->httpGet('/organization/setting/task', $query);
+        return $this->httpGet('/api/organization/setting/task', $query);
     }
 
     /**
@@ -79,7 +79,7 @@ class Setting extends BaseApi
      */
     public function testConnect($platform, array $data = [])
     {
-        return $this->httpPost(sprintf('/organization/setting/test/%s', $platform), $data);
+        return $this->httpPost(sprintf('/api/organization/setting/test/%s', $platform), $data);
     }
 
 }
