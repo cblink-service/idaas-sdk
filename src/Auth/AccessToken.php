@@ -99,7 +99,7 @@ class AccessToken
             throw new HttpClientException('Request access_token fail: '. json_encode($body, JSON_UNESCAPED_UNICODE));
         }
 
-        return $response;
+        return $body;
     }
 
     /**
