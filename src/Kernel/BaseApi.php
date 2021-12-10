@@ -105,7 +105,7 @@ class BaseApi
             $this->registerHttpMiddlewares();
         }
 
-        $response = $this->performRequest($this->getRequestUrl($url), $method, $options);
+        $response = $this->performRequest($method, $this->getRequestUrl($url), $options);
 
         return $returnRaw ? $response : $this->castResponseToType($response);
     }
