@@ -2,6 +2,7 @@
 
 namespace Cblink\Service\IDaas\Auth;
 
+use Cblink\Service\Foundation\AccessToken;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 

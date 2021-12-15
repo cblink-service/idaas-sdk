@@ -2,7 +2,7 @@
 
 namespace Cblink\Service\IDaas;
 
-use Cblink\Service\IDaas\Kernel\Container;
+use Cblink\Service\Foundation\Container;
 use Hyperf\Utils\Collection;
 
 /**
