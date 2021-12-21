@@ -42,4 +42,40 @@ class Client extends BaseApi
     {
         return $this->httpGet('/api/user/show', $query);
     }
+
+    /**
+     * 修改资料
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateProfile(array $data = [])
+    {
+        return $this->httpPut('/api/user/profile', $data);
+    }
+
+    /**
+     * 使用开放平台代授权code进行登陆
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function loginByOpenPlatformCode(array $data = [])
+    {
+        return $this->httpPost('/api/user/mini/login/code', $data);
+    }
+
+    /**
+     * 使用开放平台代授权手机号登陆
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function loginByOpenPlatformPhone(array $data = [])
+    {
+        return $this->httpPost('/api/user/mini/login/phone', $data);
+    }
 }
