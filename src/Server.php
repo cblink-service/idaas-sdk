@@ -49,7 +49,7 @@ class Server
             Arr::has($this->data, 'sign') &&
             Arr::has($this->data, 'event') &&
             Arr::has($this->data, 'appid') &&
-            $this->buildSign($this->data['data'], $this->secret) == $this->data['sign']
+            $this->buildSign($this->data, $this->secret) == $this->data['sign']
         ) {
 
             if (array_key_exists($this->data['event'], $this->handles)) {
@@ -76,6 +76,8 @@ class Server
      */
     public function buildSign($data, $secret)
     {
+        unset($data['sign']);
+
         ksort($data);
 
         return hash_hmac('sha256', urldecode(http_build_query($data)), $secret);
