@@ -78,4 +78,16 @@ class Client extends BaseApi
     {
         return $this->httpPost('/api/user/mini/login/phone', $data);
     }
+
+    /**
+     * 刷新Token
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function refreshToken(array $data = [])
+    {
+        return $this->httpPost('/api/user/refresh-token', $data);
+    }
 }
