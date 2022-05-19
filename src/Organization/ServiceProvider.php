@@ -14,8 +14,8 @@ class ServiceProvider implements ServiceProviderInterface
             return new Department($pimple);
         };
 
-        $pimple['third_user'] = function($pimple){
-            return new ThirdUser($pimple);
+        $pimple['member'] = function($pimple){
+            return new Member($pimple);
         };
 
         $pimple['organization_setting'] = function($pimple){

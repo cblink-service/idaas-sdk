@@ -31,6 +31,17 @@ class Company extends BaseApi
         return $this->httpPost('/api/organization/company', $data);
     }
 
-
+    /**
+     * 获取成员数量
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function memberCount($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/api/organization/company/%s/members', $id), $query);
+    }
 
 }
