@@ -13,7 +13,7 @@ use Hyperf\Utils\Collection;
  * @property-read \Cblink\Service\IDaas\Organization\Company $company
  * @property-read \Cblink\Service\IDaas\Organization\Department $department
  * @property-read \Cblink\Service\IDaas\Organization\Member $member
- * @property-read \Cblink\Service\IDaas\Organization\Setting $organization_setting
+ * @property-read \Cblink\Service\IDaas\Organization\Setting $company_setting
  *
  * @property-read \Cblink\Service\IDaas\User\Client $user
  * @property-read \Cblink\Service\IDaas\App\Client $app
@@ -25,8 +25,8 @@ class Application extends Container
      */
     protected array $providers = [
         Auth\ServiceProvider::class,
-        Organization\ServiceProvider::class,
-        User\ServiceProvider::class,
         App\ServiceProvider::class,
+        User\ServiceProvider::class,
+        Organization\ServiceProvider::class,
     ];
 }

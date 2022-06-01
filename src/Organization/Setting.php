@@ -34,18 +34,6 @@ class Setting extends BaseApi
     }
 
     /**
-     * 激活配置
-     *
-     * @param array $data
-     * @return array|\Psr\Http\Message\ResponseInterface|string
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function active(array $data = [])
-    {
-        return $this->httpPost('/api/organization/setting/active', $data);
-    }
-
-    /**
      * 执行同步任务
      *
      * @param array $data
@@ -60,13 +48,53 @@ class Setting extends BaseApi
     /**
      * 获取任务列表
      *
+     * @param $id
      * @param array $query
      * @return array|\Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getTasks(array $query = [])
+    public function getTask($id, array $query = [])
     {
-        return $this->httpGet('/api/organization/setting/task', $query);
+        return $this->httpGet(sprintf('/api/organization/setting/task/%s', $id), $query);
+    }
+
+    /**
+     * 获取任务同步的部门
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getTaskDepartment($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/api/organization/setting/task/%s/department', $id), $query);
+    }
+
+    /**
+     * 获取任务同步的成员
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getTaskMember($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/api/organization/setting/task/%s/member', $id), $query);
+    }
+
+    /**
+     * 保存任务同步成员
+     *
+     * @param $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function storeTask($id, array $data = [])
+    {
+        return $this->httpGet(sprintf('/api/organization/setting/task/%s', $id), $data);
     }
 
     /**
