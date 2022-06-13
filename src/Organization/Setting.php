@@ -107,7 +107,7 @@ class Setting extends BaseApi
      */
     public function testConnect($platform, array $data = [])
     {
-        return $this->httpPost(sprintf('/api/organization/setting/test/%s', $platform), $data);
+        return $this->httpPost(sprintf('/api/organization/setting/config/%s/test', $platform), $data);
     }
 
 }
