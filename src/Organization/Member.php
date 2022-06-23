@@ -44,6 +44,19 @@ class Member extends BaseApi
     }
 
     /**
+     * 获取成员详情
+     *
+     * @param $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function show($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/api/organization/member/%s', $id), $query);
+    }
+
+    /**
      * 移除成员
      *
      * @param $id
