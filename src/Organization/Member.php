@@ -79,6 +79,6 @@ class Member extends BaseApi
      */
     public function disable($id, array $data = [])
     {
-        return $this->httpPost(sprintf('/api/organization/member/%s', $id), $data);
+        return $this->httpPost(sprintf('/api/organization/member/%s/disable', $id), $data);
     }
 }
