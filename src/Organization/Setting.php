@@ -94,7 +94,7 @@ class Setting extends BaseApi
      */
     public function storeTask($id, array $data = [])
     {
-        return $this->httpGet(sprintf('/api/organization/setting/task/%s', $id), $data);
+        return $this->httpPost(sprintf('/api/organization/setting/task/%s', $id), $data);
     }
 
     /**
