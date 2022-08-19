@@ -1,12 +1,11 @@
 <?php
 
-namespace Cblink\Service\IDaas\Auth;
+namespace Cblink\Service\IDaas\Kernel;
 
-use Cblink\Service\Foundation\AccessToken;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class ServiceProvider implements ServiceProviderInterface
+class AccessTokenServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {
