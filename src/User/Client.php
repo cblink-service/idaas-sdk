@@ -44,6 +44,18 @@ class Client extends BaseApi
     }
 
     /**
+     * 查询用户 授权列表
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showOauth(array $query = [])
+    {
+        return $this->httpGet('/api/user/oauth', $query);
+    }
+
+    /**
      * 修改资料
      *
      * @param array $data
