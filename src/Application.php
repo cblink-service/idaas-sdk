@@ -16,6 +16,7 @@ use Hyperf\Utils\Collection;
  * @property-read \Cblink\Service\IDaas\Organization\Setting $company_setting
  *
  * @property-read \Cblink\Service\IDaas\User\Client $user
+ * @property-read \Cblink\Service\IDaas\Member\Client $member
  */
 class Application extends Container
 {
@@ -26,5 +27,6 @@ class Application extends Container
         Kernel\AccessTokenServiceProvider::class,
         User\ServiceProvider::class,
         Organization\ServiceProvider::class,
+        Member\ServiceProvider::class,
     ];
 }
