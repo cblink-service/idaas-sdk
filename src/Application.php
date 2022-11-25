@@ -11,8 +11,8 @@ use Hyperf\Utils\Collection;
  * @property-read \Cblink\Service\IDaas\Kernel\AccessToken $access_token
  *
  * @property-read \Cblink\Service\IDaas\Organization\Company $company
- * @property-read \Cblink\Service\IDaas\Organization\Department $department
- * @property-read \Cblink\Service\IDaas\Organization\Member $member
+ * @property-read \Cblink\Service\IDaas\Organization\Department $company_department
+ * @property-read \Cblink\Service\IDaas\Organization\Member $company_member
  * @property-read \Cblink\Service\IDaas\Organization\Setting $company_setting
  *
  * @property-read \Cblink\Service\IDaas\User\Client $user

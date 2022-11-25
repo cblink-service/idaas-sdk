@@ -10,11 +10,11 @@ class ServiceProvider implements ServiceProviderInterface
 
     public function register(Container $pimple)
     {
-        $pimple['department'] = function($pimple){
+        $pimple['company_department'] = function($pimple){
             return new Department($pimple);
         };
 
-        $pimple['member'] = function($pimple){
+        $pimple['company_member'] = function($pimple){
             return new Member($pimple);
         };
 
