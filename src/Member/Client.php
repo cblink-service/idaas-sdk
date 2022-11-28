@@ -40,7 +40,7 @@ class Client extends BaseApi
      */
     public function updatePoint(int $id, array $data = [])
     {
-        return $this->httpPut(sprintf('/api/member/%s', $id), $data);
+        return $this->httpPut(sprintf('/api/member/%s/point', $id), $data);
     }
 
     /**
