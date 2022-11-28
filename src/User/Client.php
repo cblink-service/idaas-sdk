@@ -102,4 +102,16 @@ class Client extends BaseApi
     {
         return $this->httpPost('/api/user/refresh-token', $data);
     }
+
+    /**
+     * 修改手机号
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateMobile(array $data = [])
+    {
+        return $this->httpPut('/api/user/mobile', $data);
+    }
 }
