@@ -55,4 +55,30 @@ class Client extends BaseApi
     {
         return $this->httpGet(sprintf('/api/member/%s/point-record', $id), $query);
     }
+
+    /**
+     * 获取经验值变更记录
+     *
+     * @param int $id
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getExperienceList(int $id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/api/member/level/get-experience-list/%s', $id), $query);
+    }
+
+    /**
+     * 修改经验值
+     *
+     * @param int $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateExperience(int $id, array $data = [])
+    {
+        return $this->httpPut(sprintf('/api/member/level/update-experience/%s', $id), $data);
+    }
 }
