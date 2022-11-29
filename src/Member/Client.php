@@ -103,7 +103,7 @@ class Client extends BaseApi
      */
     public function getLevelDetail($id, array $query = [])
     {
-        return $this->httpGet(sprintf('/api/member/level/update-experience/%s', $id), $query);
+        return $this->httpGet(sprintf('/api/member/level/%s', $id), $query);
     }
 
     /**
