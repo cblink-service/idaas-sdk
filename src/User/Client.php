@@ -114,4 +114,16 @@ class Client extends BaseApi
     {
         return $this->httpPut('/api/user/mobile', $data);
     }
+
+    /**
+     * 用户打标签
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function makeTag(array $data = [])
+    {
+        return $this->httpPut('/api/user/make-tag', $data);
+    }
 }
