@@ -81,4 +81,52 @@ class Client extends BaseApi
     {
         return $this->httpPut(sprintf('/api/member/level/update-experience/%s', $id), $data);
     }
+
+    /**
+     * 等级列表
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getLevelList(array $query = [])
+    {
+        return $this->httpGet('/api/member/level', $query);
+    }
+
+    /**
+     * 等级详情
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getLevelDetail($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/api/member/level/%s', $id), $query);
+    }
+
+    /**
+     * 新增等级
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function createLevel(array $data = [])
+    {
+        return $this->httpPost('/api/member/level', $data);
+    }
+
+    /**
+     * 更新等级
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateLevel($id, array $data = [])
+    {
+        return $this->httpPut(sprintf('/api/member/level/%s', $id), $data);
+    }
 }

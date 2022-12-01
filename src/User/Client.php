@@ -116,6 +116,67 @@ class Client extends BaseApi
     }
 
     /**
+     * 修改手机号
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getTagList(array $query = [])
+    {
+        return $this->httpGet('/api/tag', $query);
+    }
+
+    /**
+     * 创建标签
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function createTag(array $data = [])
+    {
+        return $this->httpPost('/api/tag', $data);
+    }
+
+    /**
+     * 标签详情
+     *
+     * @param int $id
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getTagDetail(int $id)
+    {
+        return $this->httpPost(sprintf('/api/tag/%s', $id));
+    }
+
+    /**
+     * 更新标签
+     *
+     * @param int $id
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function updateTag(int $id, array $data = [])
+    {
+        return $this->httpPut(sprintf('/api/tag/%s', $id), $data);
+    }
+
+    /**
+     * 删除标签
+     *
+     * @param int $id
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function deleteTag(int $id)
+    {
+        return $this->httpDelete(sprintf('/api/tag/%s', $id));
+    }
+
+    /**
      * 用户打标签
      *
      * @param array $data
