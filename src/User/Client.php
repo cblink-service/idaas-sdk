@@ -187,4 +187,16 @@ class Client extends BaseApi
     {
         return $this->httpPut('/api/user/make-tag', $data);
     }
+
+    /**
+     * 用户标签
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getUserTags(array $query = [])
+    {
+        return $this->httpGet('/api/user/tags', $query);
+    }
 }
