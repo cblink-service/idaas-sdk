@@ -161,7 +161,7 @@ class Client extends BaseApi
      */
     public function updateTag(int $id, array $data = [])
     {
-        return $this->httpPost(sprintf('/api/tag/%s', $id), $data);
+        return $this->httpPut(sprintf('/api/tag/%s', $id), $data);
     }
 
     /**
