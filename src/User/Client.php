@@ -188,7 +188,7 @@ class Client extends BaseApi
      */
     public function makeTags($id, array $data = [])
     {
-        return $this->httpPut(sprintf('/api/user/%s/tags', $id), $data);
+        return $this->httpPost(sprintf('/api/user/%s/tags', $id), $data);
     }
 
     /**
