@@ -3,6 +3,8 @@
 namespace Cblink\Service\IDaas\User;
 
 use Cblink\Service\IDaas\Kernel\BaseApi;
+use GuzzleHttp\Exception\GuzzleException;
+use Psr\Http\Message\ResponseInterface;
 
 class Client extends BaseApi
 {
@@ -179,12 +181,38 @@ class Client extends BaseApi
     /**
      * 用户打标签
      *
+     * @param $id
+     * @param array $data
+     * @return array|ResponseInterface|string
+     * @throws GuzzleException
+     */
+    public function makeTags($id, array $data = [])
+    {
+        return $this->httpPost(sprintf('/api/user/%s/tags', $id), $data);
+    }
+
+    /**
+     * 用户标签
+     *
+     * @param $id
+     * @param array $query
+     * @return array|ResponseInterface|string
+     * @throws GuzzleException
+     */
+    public function getTags($id, array $query = [])
+    {
+        return $this->httpGet(sprintf('/api/user/%s/tags', $id), $query);
+    }
+
+    /**
+     * 登陆记录
+     *
      * @param array $data
      * @return array|\Psr\Http\Message\ResponseInterface|string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function makeTag(array $data = [])
+    public function createLoginRecord(array $data = [])
     {
-        return $this->httpPut('/api/user/make-tag', $data);
+        return $this->httpPost('/api/user/login-record', $data);
     }
 }
