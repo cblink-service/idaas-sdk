@@ -129,4 +129,28 @@ class Client extends BaseApi
     {
         return $this->httpPut(sprintf('/api/member/level/%s', $id), $data);
     }
+
+    /**
+     * 创建等级权益发放记录
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function createLevelRewardRecord(array $data = [])
+    {
+        return $this->httpPost('/api/member/level/reward/record', $data);
+    }
+
+    /**
+     * 等级权益发放记录列表
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function levelRewardRecordList(array $query = [])
+    {
+        return $this->httpGet('/api/member/level/reward/record', $query);
+    }
 }
