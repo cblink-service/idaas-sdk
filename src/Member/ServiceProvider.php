@@ -13,6 +13,5 @@ class ServiceProvider implements ServiceProviderInterface
         $pimple['member'] = function($pimple){
             return new Client($pimple);
         };
-
     }
 }

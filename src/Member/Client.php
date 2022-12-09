@@ -3,15 +3,18 @@
 namespace Cblink\Service\IDaas\Member;
 
 use Cblink\Service\IDaas\Kernel\BaseApi;
+use GuzzleHttp\Exception\GuzzleException;
+use Psr\Http\Message\ResponseInterface;
 
 class Client extends BaseApi
 {
     /**
      * 会员详情
      *
+     * @param int $id
      * @param array $query
-     * @return array|\Psr\Http\Message\ResponseInterface|string
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return array|ResponseInterface|string
+     * @throws GuzzleException
      */
     public function show(int $id, array $query = [])
     {
@@ -121,12 +124,37 @@ class Client extends BaseApi
     /**
      * 更新等级
      *
+     * @param $id
      * @param array $data
-     * @return array|\Psr\Http\Message\ResponseInterface|string
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return array|ResponseInterface|string
+     * @throws GuzzleException
      */
     public function updateLevel($id, array $data = [])
     {
         return $this->httpPut(sprintf('/api/member/level/%s', $id), $data);
+    }
+
+    /**
+     * 创建等级权益发放记录
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function createLevelRewardRecord(array $data = [])
+    {
+        return $this->httpPost('/api/member/level/reward/record', $data);
+    }
+
+    /**
+     * 等级权益发放记录列表
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function levelRewardRecordList(array $query = [])
+    {
+        return $this->httpGet('/api/member/level/reward/record', $query);
     }
 }
