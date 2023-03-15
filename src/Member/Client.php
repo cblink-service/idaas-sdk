@@ -43,7 +43,7 @@ class Client extends BaseApi
      */
     public function updatePoint(int $id, array $data = [])
     {
-        return $this->httpPut(sprintf('/api/member/point/%s', $id), $data);
+        return $this->httpPut(sprintf('/api/member/%s/point', $id), $data);
     }
 
     /**
@@ -56,7 +56,7 @@ class Client extends BaseApi
      */
     public function getPointRecord(int $id, array $query = [])
     {
-        return $this->httpGet(sprintf('/api/member/point/%s/record', $id), $query);
+        return $this->httpGet(sprintf('/api/member/%s/point/record', $id), $query);
     }
 
     /**
@@ -69,7 +69,7 @@ class Client extends BaseApi
      */
     public function getExperienceList(int $id, array $query = [])
     {
-        return $this->httpGet(sprintf('/api/member/level/experience/%s', $id), $query);
+        return $this->httpGet(sprintf('/api/member/%s/experience', $id), $query);
     }
 
     /**
@@ -82,7 +82,7 @@ class Client extends BaseApi
      */
     public function updateExperience(int $id, array $data = [])
     {
-        return $this->httpPut(sprintf('/api/member/level/experience/%s', $id), $data);
+        return $this->httpPut(sprintf('/api/member/%s/experience', $id), $data);
     }
 
     /**
