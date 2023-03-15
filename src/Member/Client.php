@@ -158,4 +158,28 @@ class Client extends BaseApi
     {
         return $this->httpGet('/api/member/level/reward/record', $query);
     }
+
+    /**
+     * 清除积分
+     *
+     * @param array $data
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function clearPoint(array $data = [])
+    {
+        return $this->httpPost('/api/member/clear-point', $data);
+    }
+
+    /**
+     * 获取积分记录详情
+     *
+     * @param array $query
+     * @return array|\Psr\Http\Message\ResponseInterface|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function showPointRecord(array $query = [])
+    {
+        return $this->httpGet('/api/member/show/point-record', $query);
+    }
 }

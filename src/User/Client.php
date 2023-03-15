@@ -204,15 +204,4 @@ class Client extends BaseApi
         return $this->httpGet(sprintf('/api/user/%s/tags', $id), $query);
     }
 
-    /**
-     * 登陆记录
-     *
-     * @param array $data
-     * @return array|\Psr\Http\Message\ResponseInterface|string
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public function createLoginRecord(array $data = [])
-    {
-        return $this->httpPost('/api/user/login-record', $data);
-    }
 }
