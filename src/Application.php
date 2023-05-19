@@ -3,6 +3,7 @@
 namespace Cblink\Service\IDaas;
 
 use Cblink\Service\Foundation\Container;
+use Cblink\Service\Foundation\Providers\BaseServiceProvider;
 use Hyperf\Utils\Collection;
 
 /**
@@ -24,6 +25,7 @@ class Application extends Container
      * @var array
      */
     protected array $providers = [
+        BaseServiceProvider::class,
         Kernel\AccessTokenServiceProvider::class,
         User\ServiceProvider::class,
         Organization\ServiceProvider::class,
